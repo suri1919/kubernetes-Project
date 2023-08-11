@@ -1,0 +1,27 @@
+apiVersion: "apps/v1"
+kind: "Deployment"
+metadata:
+  name: "kubeproject"
+  namespace: "nodejs"
+  labels:
+    app: "k8s-node"
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: "k8s-node"
+  template:
+    metadata:
+      labels:
+        app: "k8s-node"
+    spec:
+      containers:
+        - name: "kubeproject"
+          image: "092101872227.dkr.ecr.ap-southeast-1.amazonaws.com/kubernetes_automation:buildNumber"
+          resources:
+            requests:
+              memory: "64Mi"
+              cpu: "250m"
+            limits:
+              memory: "128Mi"
+              cpu: "500m"
