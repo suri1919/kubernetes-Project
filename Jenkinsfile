@@ -12,10 +12,10 @@ pipeline {
       steps {
         sh '''
 	 whoami
-         aws ecr get-login-password --region ap-southeast-1 | docker login --username AWS --password-stdin 092101872227.dkr.ecr.ap-southeast-1.amazonaws.com
-	 docker build -t kubernetes_automation .
-         docker tag kubernetes_automation:latest $DOCKER_REGISTRY/kubernetes_automation:${BUILD_NUMBER}
-         docker push $DOCKER_REGISTRY/kubernetes_automation:${BUILD_NUMBER}
+         aws ecr get-login-password --region ap-south-1 | docker login --username AWS --password-stdin 855991486920.dkr.ecr.ap-south-1.amazonaws.com
+	 docker build -t kubernetes-automation .
+         docker tag kubernetes-automation:latest $DOCKER_REGISTRY/kubernetes-automation:${BUILD_NUMBER}
+         docker push $DOCKER_REGISTRY/kubernetes-automation:${BUILD_NUMBER}
 	  '''
       }
     }
